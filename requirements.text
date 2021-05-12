@@ -5,6 +5,6 @@ streamlit
 matplotlib
 scipy==1.4.1
 scikit-learn
-xgboost 
+xgboost==0.82  
 sklearn
 streamlit

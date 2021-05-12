@@ -1,0 +1,10 @@
+numpy
+pandas
+plotly
+streamlit
+matplotlib
+scipy==1.4.1
+scikit-learn
+sklearn.model_selection
+xgboost 
+sklearn.preprocessing

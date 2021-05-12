@@ -1,6 +1,6 @@
 import streamlit as st
 
-from sklearn.model_selection import train_test_split
+# from sklearn.model_selection import train_test_split
 from xgboost import XGBClassifier
 import numpy as np
 import xgboost as xgb

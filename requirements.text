@@ -6,4 +6,5 @@ matplotlib
 scipy==1.4.1
 scikit-learn
 xgboost 
-sklearn.preprocessing
+sklearn
+streamlit

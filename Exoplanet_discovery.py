@@ -381,8 +381,8 @@ elif categorie == "Les Exoplanètes habitables":
 fig = px.bar(sType_tab, x=sType_tab.index, y=["Exoplanètes", "Habitables"], barmode='group',
                  title="<b>La répartition des exoplanètes selon le type de leur étoile</b> (en pourcents)",
                  color_discrete_map={'Exoplanètes': 'deepskyblue', 'Habitables': 'coral'})
-    fig.update_traces(texttemplate='%{text}%', textposition='outside')
-    fig.update_layout(showlegend=True, font_family='IBM Plex Sans',
+fig.update_traces(texttemplate='%{text}%', textposition='outside')
+fig.update_layout(showlegend=True, font_family='IBM Plex Sans',
                       xaxis=dict(title="Catégorie d'étoile"),
                       yaxis=dict(title=None),
                       uniformtext_minsize=10,

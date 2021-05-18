@@ -2,5 +2,6 @@ streamlit
 pandas
 numpy
 plotly==4.14.3
+plotly-express==0.4.1 
 sklearn
 xgboost

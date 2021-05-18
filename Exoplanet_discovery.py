@@ -204,9 +204,11 @@ elif categorie == "Observer les Exoplanètes":
     """)
 
     col1, col2, col3 = st.beta_columns([1, 3, 1])
-    lk = 'https://raw.githubusercontent.com/MickaelKohler/Exoplanet_Discovery/main/Ressources/Astronomical_Transit.gif'
     with col2:
-        st.markdown(f"![Alt Text]({lk})")
+        st.markdown(
+    f'<img src="data:image/gif;base64,{https://upload.wikimedia.org/wikipedia/commons/8/82/Astronomical_Transit.gif}" alt="Astronomical_Transit gif">',
+    unsafe_allow_html=True,
+)
 
     fig = px.scatter(data_frame=planets, x="sy_disterr1", y="pl_orbper",
                      title="<b>Les méthodes utilisées en fonction de la période orbitale et de la distance à la Terre</b>",

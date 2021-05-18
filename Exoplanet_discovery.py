@@ -1,9 +1,9 @@
 import pandas as pd
 import numpy as np
 import streamlit as st
-# import plotly.express as px
-# import plotly.graph_objects as go
-# from sklearn.model_selection import train_test_split
+import plotly.express as px
+import plotly.graph_objects as go
+from sklearn.model_selection import train_test_split
 from xgboost import XGBClassifier
 
 

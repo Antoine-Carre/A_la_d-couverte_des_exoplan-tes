@@ -377,8 +377,8 @@ elif categorie == "Les Exoplanètes habitables":
     sType_hab = habit['S_TYPE_TEMP'].value_counts(normalize=True)*100
     sType_tab = pd.concat([sType, sType_hab], axis=1).reindex(index=['O', 'B', 'A', 'F', 'G', 'K', 'M'])
     sType_tab = sType_tab.fillna(0).rename(columns={'S_TYPE_TEMP': 'Habitables'}).round(2)
-
-   fig = px.bar(sType_tab, x=sType_tab.index, y=["Exoplanètes", "Habitables"], barmode='group',
+    
+fig = px.bar(sType_tab, x=sType_tab.index, y=["Exoplanètes", "Habitables"], barmode='group',
                  title="<b>La répartition des exoplanètes selon le type de leur étoile</b> (en pourcents)",
                  color_discrete_map={'Exoplanètes': 'deepskyblue', 'Habitables': 'coral'})
     fig.update_traces(texttemplate='%{text}%', textposition='outside')

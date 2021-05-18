@@ -1,4 +1,3 @@
-
 import pandas as pd
 import numpy as np
 import streamlit as st
@@ -15,7 +14,7 @@ def load_df(url):
 
 
 # option
-st.set_page_config(page_title="Exoplanet Discovery",
+st.set_page_config(page_title="A la découverte des exoplanètes",
                    page_icon="🚀",
                    layout="wide",
                    initial_sidebar_state="expanded")
@@ -25,7 +24,7 @@ st.set_page_config(page_title="Exoplanet Discovery",
 ## sidebar ##
 ############# 
 
-st.sidebar.title('Exoplanet Discovery')
+st.sidebar.title('A la découverte des exoplanètes')
 st.sidebar.subheader('Navigation')
 
 categorie = st.sidebar.radio("Categories", ("Accueil", "Observer les Exoplanètes",
@@ -45,14 +44,16 @@ expander = st.sidebar.beta_expander("Sources")
 expander.markdown(
     """
     __Les bases des données utilisées__ : 
+
     [NASA Exoplanet Archives](https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PS) : 
     Data brutes sur les exoplanètes et leur système solaire.
+
     [Planetary Habitability Laboratory](http://phl.upr.edu/projects/habitable-exoplanets-catalog/data/database) : 
     Détermine quelles sont les exoplanètes habitables ou inhabitables.
     """)
 
-expander.info('Résiliation des **Pirates Ducks** : _Antoine, Franck, Michaël, Mickaël_')
-expander.info('Hackathon organisé par la **WildCodeSchool** le 12/05/2021')
+expander.info('Réalisation des **Pirates Ducks** : _Antoine, Franck, Michaël, Mickaël_')
+expander.info('Datathon organisé par la **WildCodeSchool** le 12/05/2021')
 
 
 ##########
@@ -61,11 +62,10 @@ expander.info('Hackathon organisé par la **WildCodeSchool** le 12/05/2021')
 
 # modifier selon la localisation de la BD
 phl_db = 'http://www.hpcf.upr.edu/~abel/phl/hec2/database/phl_exoplanet_catalog.csv'
-nea_db = 'https://raw.githubusercontent.com/MickaelKohler/Exoplanet_Discovery/main/planets.csv'
+nea_db = 'https://raw.githubusercontent.com/Antoine-Carre/A_la_decouverte_des_exoplanetes/main/planets.csv'
 
 planets = load_df(nea_db)
 plan_hab = load_df(phl_db)
-
 
 
 ###############
@@ -73,17 +73,19 @@ plan_hab = load_df(phl_db)
 ###############
 
 if categorie == 'Accueil':
-    st.title('Exoplanet Discovery')
+    st.title('A la découverte des exoplanètes')
     st.subheader('Notre mission : _Donner vie à la data_')
 
     st.markdown(
         """
         Fermi était septique :
+
         _« S'il y avait des civilisations extraterrestres, leurs représentants 
-        devraient être déjà chez nous. Où sont-ils donc ? »_
+        devraient déjà être chez nous. Où sont-ils donc ? »_
         
         Si la question n'a pas de réponse, c'est le principe même de ce paradoxe, 
         elle souligne tout de même la volonté qu'à l'homme de pouvoir rencontrer son alter-égo.
+
         Si ce n'est pas des civilisations extraterrestres qui nous ont trouvé, alors c'est à nous de les chercher. 
         Les pieds sur terre, la tête dans les étoiles. Nous scrutons le ciel pour 
         trouver une terre qui nous ressemble. Ce sont les _Exoplanètes_.
@@ -99,9 +101,9 @@ if categorie == 'Accueil':
             relance la course à la recherche de la vie. Mars n’est plus le seul horizon. 
             L’espoir se propage à présent jusqu’au confins de l’univers.
 
-
             C’est aujourd’hui __4383 exoplanètes__ qui ont été découvertes. 
-            Dans ce total toutefois, seulement __moins de 1,5% sont considérées remplissant 
+
+            Dans ce total toutefois, seulement __moins de 1,5% sont considérées comme remplissant 
             suffisamment de conditions pour accueillir une forme de vie__. 
             """
         )
@@ -133,13 +135,13 @@ if categorie == 'Accueil':
         Nous vous proposons de partir ensemble pour un voyage dans les méandres de l’univers. 
         Où les températures ardentes flirtent avec le zéro absolu et où le vide est la règle et la vie l’exception.
 
-        Partons ensemble à la rencontre des exoplanetes
+        Partons ensemble à la rencontre des exoplanètes
         """)
 
     st.title(" ")
     col1, col2, col3 = st.beta_columns([1, 4, 1])
     with col2:
-        st.image("https://github.com/MickaelKohler/Exoplanet_Discovery/raw/main/Ressources/galaxy-red-green-illustration-wallpaper.png",
+        st.image("https://github.com/Antoine-Carre/A_la_decouverte_des_exoplanetes/blob/3d7b2cab115689de270fa46566f0c9637a105335/Ressources/Multicolored_galaxy_illustration.jpg",
                  caption="Ceci n'est pas une exoplanète")
 
     expander = st.beta_expander("Les technologies utilisées")
@@ -198,17 +200,16 @@ elif categorie == "Observer les Exoplanètes":
     physiques comme la vitesse, la masse et la distance.
     
     ___Et la méthode la méthode du transit ?___
+
     Cette méthode consiste en l'observation d'une répétition constante d'une __variation de luminosité__ d'une étoile.
     Lorsqu'une planète passe devant une étoiles, elle crée une zone d'ombre 
     qui font varier la luminosité captée depuis la Terre.
     """)
 
     col1, col2, col3 = st.beta_columns([1, 3, 1])
+    lk = 'https://raw.githubusercontent.com/MickaelKohler/Exoplanet_Discovery/main/Ressources/Astronomical_Transit.gif'
     with col2:
-        st.markdown(
-    f'<img src="data:image/gif;base64,{https://upload.wikimedia.org/wikipedia/commons/8/82/Astronomical_Transit.gif}" alt="Astronomical_Transit gif">',
-    unsafe_allow_html=True,
-)
+        st.markdown(f"![Alt Text]({lk})")
 
     fig = px.scatter(data_frame=planets, x="sy_disterr1", y="pl_orbper",
                      title="<b>Les méthodes utilisées en fonction de la période orbitale et de la distance à la Terre</b>",
@@ -303,12 +304,12 @@ elif categorie == "Les Exoplanètes habitables":
         __Où se situe la planète la plus proche ?__ La planète potentiellement habitables 
         la plus proche est __{planet_name}__, qui est située à {planet_distance} années lumières.
 
-
         A savoir, qu'il faudait _76 624 993 ans_ de voyage à la sonde _Voyager 1_ pour atteindre cette exoplanète.
         
         Pour qu'une planète soit considéré comme habitable, elle doit être située dans la __Zone Habitable__ 
         qui est la région de l’espace où les conditions sont favorables à l’apparition de la vie, 
         telle que nous la connaissons sur Terre.
+
         Les limites des zones habitables sont calculées à partir des éléments connus de la biosphère de la Terre, 
         comme sa position dans le Système solaire et la quantité d'énergie qu'elle reçoit du Soleil.  
         
@@ -365,8 +366,9 @@ elif categorie == "Les Exoplanètes habitables":
         La _Zone Habitable_ met en avant la nécessité de déterminer les critères 
         qui font qu’une exoplanète soit suspectée comme pouvant être habitable. 
 
-       On peut donc tenter de comparer les caractéristiques des exoplanètes 
+        On peut donc tenter de comparer les caractéristiques des exoplanètes 
         considérées comme habitables de l’ensemble des exoplanètes.
+
         Restons dans les étoiles et essayons de répondre à la question : 
         _Quelle type d’étoile favorise la présence d’exoplanètes habitables ?_
         """
@@ -377,22 +379,22 @@ elif categorie == "Les Exoplanètes habitables":
     sType_hab = habit['S_TYPE_TEMP'].value_counts(normalize=True)*100
     sType_tab = pd.concat([sType, sType_hab], axis=1).reindex(index=['O', 'B', 'A', 'F', 'G', 'K', 'M'])
     sType_tab = sType_tab.fillna(0).rename(columns={'S_TYPE_TEMP': 'Habitables'}).round(2)
-    
-fig = px.bar(sType_tab, x=sType_tab.index, y=["Exoplanètes", "Habitables"], barmode='group',
+
+    fig = px.bar(sType_tab, x=sType_tab.index, y=["Exoplanètes", "Habitables"], barmode='group',
                  title="<b>La répartition des exoplanètes selon le type de leur étoile</b> (en pourcents)",
                  color_discrete_map={'Exoplanètes': 'deepskyblue', 'Habitables': 'coral'})
-fig.update_traces(texttemplate='%{text}%', textposition='outside')
-fig.update_layout(showlegend=True, font_family='IBM Plex Sans',
+    fig.update_traces(texttemplate='%{text}%', textposition='outside')
+    fig.update_layout(showlegend=True, font_family='IBM Plex Sans',
                       xaxis=dict(title="Catégorie d'étoile"),
                       yaxis=dict(title=None),
                       uniformtext_minsize=10,
                       uniformtext_mode='hide',
                       margin=dict(l=10, r=10, b=10),
                       legend=dict(x=0, y=1, traceorder="normal", bgcolor='rgba(0,0,0,0)', font=dict(size=12)))
-texts = [sType_tab["Exoplanètes"], sType_tab["Habitables"]]
-for i, t in enumerate(texts):
-    fig.data[i].text = t
-    
+    texts = [sType_tab["Exoplanètes"], sType_tab["Habitables"]]
+    for i, t in enumerate(texts):
+        fig.data[i].text = t
+
     if show:
         col1, col2 = st.beta_columns([1, 3])
         with col2:
@@ -477,8 +479,10 @@ for i, t in enumerate(texts):
         étoile ; son système planétaire doit se situer __assez près du centre de la galaxie__ pour avoir suffisamment 
         d'éléments lourds qui favorisent la formation de planètes telluriques et des 
         atomes nécessaires à la vie (fer, cuivre, etc).
+
         Mais ce système devra également se situer __assez loin du centre galactique__ pour éviter des dangers tels que 
         le trou noir au centre de la galaxie et les supernova.
+
         Mais l'exoplanète en elle même doit présenter des conditions intrinsèque pour 
         être une bonne candidate pour accueillir la vie. 
         """
@@ -539,6 +543,7 @@ for i, t in enumerate(texts):
         Les exoplanète habitables sont essentiellement situées sur des planètes équivalentes 
         à la terre ou légèrement plus grosse. Comme pour la _Zone Habitable_, la conditions de 
         validité pour être considérée comme une exoplanète habitable est très restreinte. 
+
         Ces conditions ne sont bien sur pas limitatives. Il existe de nombreux critères à prendre en compte. 
         De nombreuses variables qui peuvent être étudiées par un algorithme afin de 
         pouvoir créer un modèle permettant de repérer les exoplanètes.
@@ -558,6 +563,7 @@ elif categorie == "L'IA à l'aide des Astrophysicien":
 
         Toutefois, leur base de donnée ne prend pas en considération les dernières 
         exoplanètes découvertes à partir de début 2020. 
+
         Nous avons donc tenté d’entrainer un __algorithme de Machine Learning__ pour déterminer, 
         selon les caractéristiques de chaque exoplanète, si elle peut être catégorisée comme habitable ou non, 
         dans le but de catégoriser celles qui n’ont pas été identifiée.
@@ -629,6 +635,7 @@ elif categorie == "L'IA à l'aide des Astrophysicien":
                 remplit les conditions__ pour pouvoir accueillir la vie. 
 
                 La recherche continue…
+
                 _« I want to believe »_
                 """
             )
@@ -644,10 +651,13 @@ elif categorie == "L'IA à l'aide des Astrophysicien":
     expander.markdown(
         """
         ___Quel modèle a été retenu ?___
+
         Nous avons testé les algorithmes de classification les plus 
         pertinents afin de prédire si une planète est habitable.
+
         Lors de ces tests, les algorithmes, ci-dessous, ont produit les résultats les plus proches 
         de la réalités (scores), c'est à dire en comparant nos résultats aux informations à notre disposition.
+
         Bien que les meilleurs scores soient supérieurs à celui du XGBoost, que nous avons choisit, 
         ce dernier a été plus à même de prédire les planètes habitables connues.
         """)
@@ -672,8 +682,10 @@ elif categorie == "L'IA à l'aide des Astrophysicien":
     expander.markdown(
         """
         ___Qu'est-ce que le XGBoost ?___
+
         XGBoot est la Extrême Gradient Boosted Trees, plus simplement 
         il s'agit d'une forêt d'arbres de décision optimisée.
+
         "Un arbre de décision est un outil d'aide à la décision représentant 
         un ensemble de choix sous la forme graphique d'un arbre. 
         Les différentes décisions possibles sont situées aux extrémités des branches (les « feuilles » de l'arbre), 

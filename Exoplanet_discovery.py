@@ -389,10 +389,10 @@ fig.update_layout(showlegend=True, font_family='IBM Plex Sans',
                       uniformtext_mode='hide',
                       margin=dict(l=10, r=10, b=10),
                       legend=dict(x=0, y=1, traceorder="normal", bgcolor='rgba(0,0,0,0)', font=dict(size=12)))
-    texts = [sType_tab["Exoplanètes"], sType_tab["Habitables"]]
-    for i, t in enumerate(texts):
-        fig.data[i].text = t
-
+texts = [sType_tab["Exoplanètes"], sType_tab["Habitables"]]
+for i, t in enumerate(texts):
+    fig.data[i].text = t
+    
     if show:
         col1, col2 = st.beta_columns([1, 3])
         with col2:

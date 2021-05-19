@@ -6,6 +6,7 @@ import numpy as np
 #from sklearn.model_selection import train_test_split
 #from xgboost import XGBClassifier
 
+CURRENT_THEME = "dark"
 
 @st.cache
 def load_df(url):

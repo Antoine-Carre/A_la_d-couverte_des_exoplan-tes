@@ -7,6 +7,7 @@ import numpy as np
 #from xgboost import XGBClassifier
 
 CURRENT_THEME = "dark"
+IS_DARK_THEME = True
 
 @st.cache
 def load_df(url):

@@ -18,9 +18,6 @@ st.set_page_config(page_title="A la découverte des exoplanètes",
                    page_icon="🚀",
                    layout="wide",
                    initial_sidebar_state="expanded")
-base="dark"
-primaryColor="purple"
-
 
 #############
 ## sidebar ##

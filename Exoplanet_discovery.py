@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 from sklearn.model_selection import train_test_split
 from xgboost import XGBClassifier
 
-
+DATA_URL="planets.csv"
 
 @st.cache
 def load_df(url):

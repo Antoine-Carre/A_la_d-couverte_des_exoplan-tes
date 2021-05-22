@@ -61,7 +61,7 @@ expander.info('Hackathon organisé par la **WildCodeSchool** le 12/05/2021')
 
 # modifier selon la localisation de la BD
 phl_db = 'http://www.hpcf.upr.edu/~abel/phl/hec2/database/phl_exoplanet_catalog.csv'
-nea_db = 'https://raw.githubusercontent.com/MickaelKohler/Exoplanet_Discovery/main/planets.csv'
+nea_db = DATA_URL
 
 planets = load_df(nea_db)
 plan_hab = load_df(phl_db)

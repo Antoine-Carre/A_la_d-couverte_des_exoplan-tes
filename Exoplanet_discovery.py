@@ -6,8 +6,6 @@ import plotly.graph_objects as go
 from sklearn.model_selection import train_test_split
 from xgboost import XGBClassifier
 
-DATA_URL="planets.csv"
-
 @st.cache
 def load_df(url):
     df = pd.read_csv(url)
@@ -61,7 +59,7 @@ expander.info('Hackathon organisé par la **WildCodeSchool** le 12/05/2021')
 
 # modifier selon la localisation de la BD
 phl_db = 'http://www.hpcf.upr.edu/~abel/phl/hec2/database/phl_exoplanet_catalog.csv'
-nea_db = DATA_URL
+nea_db = planets.csv
 
 planets = load_df(nea_db)
 plan_hab = load_df(phl_db)
